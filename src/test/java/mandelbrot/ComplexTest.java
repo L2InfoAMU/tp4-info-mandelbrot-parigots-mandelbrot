@@ -148,4 +148,41 @@ public class ComplexTest {
         Complex c2 = new Complex(real, imaginary);
         assertEquals(c1.hashCode(), c2.hashCode());
     }
+    @Test
+    void testEquals(){
+        assertNotEquals(Complex.ONE,Complex.ZERO);
+        assertEquals(Complex.ONE,Complex.ONE);
+        Complex c1 = new Complex(1,0);
+        assertEquals(Complex.ONE,c1);
+        Complex c2 = new Complex(0,1);
+        assertNotEquals(c1,c2);
+        Complex c3 = null;
+        assertNotEquals(c1,c3);
+        Complex c4 = new Complex(1,1);
+        assertNotEquals(c1,c4);
+    }
+
+    @Test
+    void testAdd(){
+        Complex c1 = new Complex(1,1);
+        Complex c2 = new Complex(2,1);
+        assertEquals(c2,c1.add(Complex.ONE));
+        Complex c3 = new Complex(0,-1);
+        Complex c4 = new Complex(2,0);
+        assertEquals(c4,c2.add(c3));
+    }
+    @Test
+    void testSquaredModulus(){
+        Complex c1 = new Complex(real,imaginary);
+        assertEquals(c1.squaredModulus(),244);
+        assertEquals(minusI.squaredModulus(),minusOne.squaredModulus());
+        assertNotEquals(Complex.ONE.squaredModulus(),0);
+    }
+    @Test
+    void testModulus(){
+        Complex c1 = new Complex(4,4);
+        assertEquals(5.656854249492381,c1.modulus());
+        Complex c2 = new Complex(6,0);
+        assertEquals(6,c2.modulus());
+    }
 }
