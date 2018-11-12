@@ -128,6 +128,11 @@ public class ComplexTest {
     }
 
     @Test
+    void testComplexReal() {
+        assertEquals(new Complex(Math.sqrt(2)/2.,0), Complex.real(Math.sqrt(2)/2.));
+    }
+
+    @Test
     void testHashCode() {
         Complex c1 = new Complex(real, imaginary);
         Complex c2 = new Complex(real, imaginary);
