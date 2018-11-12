@@ -163,4 +163,11 @@ public class ComplexTest {
         assertEquals(minusI.squaredModulus(),minusOne.squaredModulus());
         assertNotEquals(Complex.ONE.squaredModulus(),0);
     }
+    @Test
+    void testModulus(){
+        Complex c1 = new Complex(4,4);
+        assertEquals(5.656854249492381,c1.modulus());
+        Complex c2 = new Complex(6,0);
+        assertEquals(6,c2.modulus());
+    }
 }
