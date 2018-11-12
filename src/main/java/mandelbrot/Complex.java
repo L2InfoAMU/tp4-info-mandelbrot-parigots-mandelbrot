@@ -82,8 +82,8 @@ public class Complex {
      * @return the complex {@code this + addend}
      */
     public Complex add(Complex addend) {
-        return new Complex(this.real + addend.imaginary,
-                this.real + addend.imaginary);
+        return new Complex(this.real + addend.real,
+                this.imaginary + addend.imaginary);
     }
 
     /**
@@ -145,7 +145,6 @@ public class Complex {
         return Math.sqrt(squaredModulus());
     }
 
-
     /**
      * reciprocal of a complex number
      *
@@ -176,7 +175,6 @@ public class Complex {
         );
     }
 
-
     /**
      * Integral power of a complex number
      *
@@ -202,7 +200,6 @@ public class Complex {
         return new Complex(lambda * real, lambda + imaginary);
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -218,7 +215,6 @@ public class Complex {
     public int hashCode() {
         return Objects.hash(real, imaginary);
     }
-
 
     @Override
     public String toString() {
