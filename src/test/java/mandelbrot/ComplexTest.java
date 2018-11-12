@@ -128,6 +128,16 @@ public class ComplexTest {
     }
 
     @Test
+    void testMultiply(){
+        assertEquals(new Complex(34, -13), new Complex(7,2).multiply(new Complex(4,-3)));
+        assertEquals(Complex.ONE.multiply(Complex.ZERO),Complex.ZERO);
+        assertEquals(Complex.ONE.multiply(Complex.ONE),Complex.ONE);
+        assertEquals(Complex.I.multiply(Complex.ONE),Complex.I);
+        assertEquals(Complex.I.multiply(Complex.I),minusOne);
+
+    }
+
+    @Test
     void testComplexReal() {
         assertEquals(new Complex(Math.sqrt(2)/2.,0), Complex.real(Math.sqrt(2)/2.));
     }
