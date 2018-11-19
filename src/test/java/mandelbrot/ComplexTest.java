@@ -1,5 +1,6 @@
 package mandelbrot;
 
+import com.sun.org.apache.xpath.internal.patterns.ContextMatchStepPattern;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -184,5 +185,25 @@ public class ComplexTest {
         assertEquals(5.656854249492381,c1.modulus());
         Complex c2 = new Complex(6,0);
         assertEquals(6,c2.modulus());
+    }
+
+    @Test
+    void testPow(){
+        assertEquals(Complex.ONE,Complex.ZERO.pow(0));
+        assertEquals(Complex.ZERO,Complex.ZERO.pow(1));
+        assertEquals(Complex.ONE, Complex.ONE.pow(3));
+        assertEquals(twoI,onePlusI.pow(2));
+        Complex c1 = new Complex(2,2);
+        Complex c2 = new Complex(0,8);
+        assertEquals(c2,c1.pow(2));
+    }
+
+    @Test
+    void testScale(){
+        assertEquals(Complex.ZERO, Complex.ZERO.scale(5));
+        Complex c1 = new Complex(5,0);
+        assertEquals(c1, Complex.ONE.scale(5));
+        Complex c2 = new Complex(0,-5);
+        assertEquals(c2,minusI.scale(5));
     }
 }
